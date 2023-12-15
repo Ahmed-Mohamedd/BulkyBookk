@@ -1,0 +1,31 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form method="post" asp-controller="Category" asp-action="Edit" >
+    <div class="border p-3 mt-4 ">
+
+        <div class="row pb-2 ">
+            <h2 class="text-primary">Update Category</h2>
+            <hr />
+        </div>
+        <input hidden asp-for="CategoryId" />
+
+        
+
+        <partial name="PartialViews/_CreateEditCategoryPartialView" />
+
+        <button type="submit" class="btn btn-info" style="width:150px">Update</button>|
+        <a asp-action="Index" class="btn btn-outline-secondary">Back To List</a>
+
+    </div>
+</form>
+
+@section Scripts{
+ @{
+<partial name="_ValidationScriptsPartial" />
+
+ }   
+}
+

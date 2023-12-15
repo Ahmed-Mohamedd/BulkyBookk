@@ -1,0 +1,92 @@
+﻿@model BulkyBook.PL.ViewModels.RegisterViewModel
+
+
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_AuthenticationLayout";
+	 
+}
+
+
+
+<form class="form-detail"  method="post" asp-action="Register">
+	
+				<h2>Register Account Form</h2>
+				<div asp-validation-summary=All class="text-danger"></div>
+
+				<div class="form-row">
+					<label asp-for="Email"></label>
+					<input  asp-for="Email" id="your-email" class="input-text" placeholder="Your Email" required >
+					<i class="fas fa-envelope"></i>
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+				<div class="form-row">
+					<label asp-for="Password"></label>
+					<input asp-for="Password" id="password" class="input-text" placeholder="Your Password" >
+					<i class="fas fa-lock"></i>
+					<span asp-validation-for="Password" class="text-danger"></span>
+
+				</div>
+				<div class="form-row">
+					<label asp-for="ConfirmPassword"></label>
+					<input  asp-for="ConfirmPassword" id="password" class="input-text" placeholder="Your Confirmed Password" >
+					<i class="fas fa-lock"></i>
+					<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+				</div>
+				<div class="form-row">
+					<label asp-for="State"></label>
+					<input  asp-for="State"  class="input-text" placeholder="Your  State" >
+					<i class="fas fa-lock"></i>
+					<span asp-validation-for="State" class="text-danger"></span>
+				</div>
+				<div class="form-row">
+					<label asp-for="City"></label>
+					<input asp-for="City"  class="input-text" placeholder="Your  City">
+					<i class="fas fa-lock"></i>
+					<span asp-validation-for="City" class="text-danger"></span>
+				</div>
+				<div class="form-row">
+					<label asp-for="StreetAddress"></label>
+					<input asp-for="StreetAddress"  class="input-text" placeholder="Your Street Address">
+					<i class="fas fa-lock"></i>
+					<span asp-validation-for="StreetAddress" class="text-danger"></span>
+				</div>
+				<div class="form-row">
+					<label asp-for="PostalCode"></label>
+					<input asp-for="PostalCode" id="password" class="input-text" placeholder="Your PostalCode">
+					<i class="fas fa-lock"></i>
+					<span asp-validation-for="PostalCode" class="text-danger"></span>
+				</div>
+
+
+				<div class="mb-3 col-6">
+					<label asp-for="Role"></label>
+					<select asp-for="Role" asp-items="ViewBag.RoleList" class="form-select" >
+						<option disabled selected>--Select Role Type--</option>
+					</select>
+
+					<span asp-validation-for="Role" class="text-danger"></span>
+				</div> 
+				
+				<div class="form-check">
+					<div class="col-1"><input class="form-check-input" type="checkbox"  id="flexCheckDefault" asp-for="IsAgree"/></div> 
+					 <div class="col-10"><span class="form-check-label" for="flexCheckDefault"> Agree To The Terms & Conditions</span></div>
+					<span asp-validation-for="IsAgree" class="text-danger"></span>
+				 </div>
+
+
+				<div class="form-row-last">
+					<button type="submit" class="register" style="width:150px" >Register</button>
+				</div>
+</form>
+<p class="text-center">Already have an Account? <a  asp-action="Login"> Login Now!</a></p>
+
+@section Scripts{
+ @{
+<partial name="_ValidationScriptsPartial" />
+
+ }   
+}
+
+

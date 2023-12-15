@@ -1,0 +1,100 @@
+﻿@model BulkyBook.PL.ViewModels.ProductViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post" asp-controller="Product" asp-action="Delete" enctype="multipart/form-data" >
+    <div class="row border p-3 mt-4 ">
+
+        <div class="row pb-2 ">
+            <h2 class="text-primary">Delete Product</h2>
+            <hr />
+        </div>
+        <input asp-for="Id" hidden/>
+        <input asp-for="ImageUrl" hidden/>
+        
+        <div asp-validation-summary=All></div>
+      
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input readonly asp-for="Title" class="form-control" />
+           
+        </div> 
+
+         <div class="mb-3">
+            <label asp-for="Description"></label>
+            <textarea readonly asp-for="Description" class="form-control" rows="3" ></textarea>
+           
+        </div>
+
+        <div class="mb-3 col-6">
+            <label asp-for="ISBN"></label>
+            <input readonly asp-for="ISBN" class="form-control" />
+           
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Author"></label>
+            <input readonly asp-for="Author" class="form-control" />
+           
+        </div> 
+
+        <div class="mb-3 col-6">
+            <label asp-for="ListPrice"></label>
+            <input readonly asp-for="ListPrice" class="form-control" />
+            
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Price"></label>
+            <input readonly asp-for="Price" class="form-control" />
+            
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Price5"></label>
+            <input readonly asp-for="Price5" class="form-control" />
+          
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Price10"></label>
+            <input readonly asp-for="Price10" class="form-control" />
+           
+        </div> 
+
+
+         <div class="mb-3">
+        <label class="col-form-label" asp-for="Image"></label>
+        <input readonly class="form-control" asp-for="Image" />
+      
+        </div>
+
+
+         <div class="mb-3 col-6">
+            <label asp-for="CoverTypeId"></label>
+            <select asp-for="CoverTypeId" readonly asp-items="@(ViewData["CoversList"] as IEnumerable<SelectListItem>)" class="form-select" >
+                <option disabled selected>--Select Cover Type--</option>
+            </select>
+        </div> 
+
+
+         <div class="mb-3 col-6">
+            <label asp-for="CategoryId"></label>
+            <select asp-for="CategoryId" readonly asp-items="ViewBag.CategoryList" class="form-select" >
+                <option disabled selected>--Select Category--</option>
+            </select>
+
+        </div> 
+
+       
+
+       
+
+        
+        <div class="mb-3 col-6 ">
+             <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>|
+             <a asp-action="Index" class="btn btn-outline-secondary">Back To List</a>
+        </div>
+       
+
+    </div>
+</form>
+
+

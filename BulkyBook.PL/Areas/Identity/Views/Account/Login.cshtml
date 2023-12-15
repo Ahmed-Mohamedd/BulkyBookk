@@ -1,0 +1,51 @@
+﻿@model BulkyBook.PL.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_AuthenticationLayout";
+}
+
+
+
+<form class="form-detail"  method="post" asp-action="Login">
+	
+				<h2>Login Account Form</h2>
+				<div asp-validation-summary=All class="text-danger"></div>
+
+				<div class="form-row">
+					<label asp-for="Email"></label>
+					<input  asp-for="Email" id="your-email" class="input-text" placeholder="Your Email" required >
+					<i class="fas fa-envelope"></i>
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+				<div class="form-row">
+					<label asp-for="Password"></label>
+					<input asp-for="Password" id="password" class="input-text" placeholder="Your Password" >
+					<i class="fas fa-lock"></i>
+					<span asp-validation-for="Password" class="text-danger"></span>
+
+				</div>
+				
+
+				
+				<div class="form-check">
+					<div class="col-1"><input class="form-check-input" type="checkbox"  id="flexCheckDefault" asp-for="RememberMe"/></div> 
+					 <div class="col-10"><span class="form-check-label" for="flexCheckDefault"> Remember me</span></div>
+					<span asp-validation-for="RememberMe" class="text-danger"></span>
+				 </div>
+
+
+				<div class="form-row-last">
+					<button type="submit" class="register" style="width:150px" >Login</button>
+				</div>
+</form>
+<p class="text-center">Don't have an Account? <a  asp-action="Register"> Register Now!</a></p>
+
+@section Scripts{
+ @{
+<partial name="_ValidationScriptsPartial" />
+
+ }   
+}
+
+

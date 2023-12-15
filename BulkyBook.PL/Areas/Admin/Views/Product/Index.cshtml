@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Notification" />
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"> Products List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a  asp-controller="Product" asp-action="Create" class="btn btn-outline-primary "> 
+                <i class="bi bi-patch-plus"></i> &nbsp; Add New Product
+                </a>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+<table class="table  table-bordered table-striped" style="width:100%">
+
+    <thead >
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Author</th>
+            <th scope="col">Category</th>
+            <th scope="col">CoverType</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+           
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var product in Model)
+        {
+    
+            <tr class="table-success">
+                <td >@product.Title</td>
+                <td>@product.ISBN</td>
+                <td >@product.Author</td>
+                <td >@product.Category.Name</td>
+                <td >@product.CoverType.Name</td>
+                
+                <td><a asp-action="Edit"    asp-route-id="@product.Id" class="btn btn-info"><i class="bi bi-pencil-square"></i> Edit</a></td>
+                <td><a asp-action="Delete"  asp-route-id="@product.Id" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

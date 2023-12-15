@@ -1,0 +1,86 @@
+﻿@model BulkyBook.PL.ViewModels.ProductViewModel
+@*@inject ICategoryRepository categoryrepository
+@inject ICoverTypeRepository covertyperepository*@
+@{
+    
+    //var categories = new SelectList( categoryrepository.GetAll(), "Id", "Name");
+    //var covers = new SelectList( covertyperepository.GetAll(), "Id", "Name");
+}
+
+ <div asp-validation-summary=All></div>
+      
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div> 
+
+         <div class="mb-3">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control" rows="3" ></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 col-6">
+            <label asp-for="ISBN"></label>
+            <input asp-for="ISBN" class="form-control" />
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Author"></label>
+            <input asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div> 
+
+        <div class="mb-3 col-6">
+            <label asp-for="ListPrice"></label>
+            <input asp-for="ListPrice" class="form-control" />
+            <span asp-validation-for="ListPrice" class="text-danger"></span>
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Price5"></label>
+            <input asp-for="Price5" class="form-control" />
+            <span asp-validation-for="Price5" class="text-danger"></span>
+        </div> 
+        <div class="mb-3 col-6">
+            <label asp-for="Price10"></label>
+            <input asp-for="Price10" class="form-control" />
+            <span asp-validation-for="Price10" class="text-danger"></span>
+        </div> 
+
+
+         <div class="mb-3">
+        <label class="col-form-label" asp-for="Image"></label>
+        <input class="form-control" asp-for="Image" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+
+         <div class="mb-3 col-6">
+            <label asp-for="CoverTypeId"></label>
+            <select asp-for="CoverTypeId" asp-items="@(ViewData["CoversList"] as IEnumerable<SelectListItem>)" class="form-select" >
+                <option disabled selected>--Select Cover Type--</option>
+            </select>
+
+            <span asp-validation-for="CoverTypeId" class="text-danger"></span>
+        </div> 
+
+
+         <div class="mb-3 col-6">
+            <label asp-for="CategoryId"></label>
+            <select asp-for="CategoryId" asp-items=" ViewBag.CategoryList" class="form-select" >
+                <option disabled selected>--Select Category--</option>
+            </select>
+
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div> 
+
+       
+
+
+    

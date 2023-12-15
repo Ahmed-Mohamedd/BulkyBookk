@@ -1,0 +1,31 @@
+﻿@model CoverType
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form method="post" asp-controller="CoverType" asp-action="Edit" >
+    <div class="border p-3 mt-4 ">
+
+        <div class="row pb-2 ">
+            <h2 class="text-primary">Edit CoverType</h2>
+            <hr />
+        </div>
+        <input asp-for="Id" hidden />
+
+        
+
+        <partial name="PartialViews/_CreateEditCoverTypePartialViews" />
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>|
+        <a asp-action="Index" class="btn btn-outline-secondary">Back To List</a>
+
+    </div>
+</form>
+
+@section Scripts{
+ @{
+<partial name="_ValidationScriptsPartial" />
+
+ }   
+}
+
